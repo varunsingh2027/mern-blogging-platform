@@ -1,0 +1,82 @@
+{
+  "name": "blogging-platform",
+  "version": "1.0.0",
+  "description": "A modern, full-stack MERN blogging platform with rich text editor, JWT authentication, and comprehensive admin dashboard",
+  "main": "index.js",
+  "private": true,
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "scripts": {
+    "dev": "concurrently \"npm run server:dev\" \"npm run client:dev\"",
+    "server:dev": "cd server && npm run dev",
+    "client:dev": "cd client && npm start",
+    "server:start": "cd server && npm start",
+    "client:build": "cd client && npm run build",
+    "client:test": "cd client && npm test",
+    "server:test": "cd server && npm test",
+    "test": "concurrently \"npm run client:test\" \"npm run server:test\"",
+    "install:client": "cd client && npm ci",
+    "install:server": "cd server && npm ci",
+    "install:all": "npm ci && npm run install:client && npm run install:server",
+    "build": "npm run install:all && npm run client:build",
+    "start": "npm run server:start",
+    "lint": "concurrently \"npm run client:lint\" \"npm run server:lint\"",
+    "client:lint": "cd client && npm run lint",
+    "server:lint": "cd server && npm run lint",
+    "postinstall": "npm run install:all",
+    "prepare": "husky install || true",
+    "pre-commit": "lint-staged"
+  },
+  "keywords": [
+    "blogging-platform",
+    "mern-stack",
+    "react",
+    "nodejs",
+    "express",
+    "mongodb",
+    "jwt-authentication",
+    "rich-text-editor",
+    "admin-dashboard",
+    "responsive-design",
+    "full-stack",
+    "web-application"
+  ],
+  "author": {
+    "name": "Your Name",
+    "email": "your.email@example.com",
+    "url": "https://github.com/yourusername"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/blogging-platform.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/blogging-platform/issues"
+  },
+  "homepage": "https://github.com/yourusername/blogging-platform#readme",
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0"
+  },
+  "lint-staged": {
+    "client/**/*.{js,jsx,ts,tsx}": [
+      "cd client && npm run lint:fix",
+      "cd client && npm run format"
+    ],
+    "server/**/*.{js,ts}": [
+      "cd server && npm run lint:fix",
+      "cd server && npm run format"
+    ],
+    "**/*.{json,md,yml,yaml}": [
+      "prettier --write"
+    ]
+  },
+  "workspaces": [
+    "client",
+    "server"
+  ]
+}
