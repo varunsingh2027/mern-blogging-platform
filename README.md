@@ -298,7 +298,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 If you have any questions or need help, please:
 - Create an issue on GitHub
-- Contact: your-email@example.com
+- Contact: varunsingh04.online@gmail.com
 
 ---
 
